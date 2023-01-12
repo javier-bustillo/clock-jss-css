@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>CSS + JS Clock</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body>
     <div class="clock">
         <div class="clock-face">
@@ -15,6 +17,19 @@
             <div class="hand second-hand"></div>
         </div>
     </div>
-    
+    <script>
+        const secondHand = document.querySelector('.second-hand');
+
+        function setDate() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const secondsDegrees = ((seconds / 60) * 360) + 90;
+            secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+            console.log(seconds);
+        }
+
+        setInterval(setDate, 1000);
+    </script>
 </body>
+
 </html>
